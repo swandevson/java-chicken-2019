@@ -3,6 +3,7 @@ package Validator;
 
 import domain.Command;
 import domain.MenuRepository;
+import domain.Payment;
 import domain.Table;
 import domain.TableRepository;
 import java.util.Arrays;
@@ -50,6 +51,12 @@ public class InputValidator {
 
         if (!table.isOrdered()) {
             throw new IllegalArgumentException("주문 내역이 없는 테이블입니다");
+        }
+    }
+
+    public static void validatePayment(int paymentNumber) throws IllegalArgumentException {
+        if (!Payment.isExistPayment(paymentNumber)) {
+            throw new IllegalArgumentException("올바르지 않은 결제 수단입니다.");
         }
     }
 }

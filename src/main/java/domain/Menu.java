@@ -22,6 +22,10 @@ public class Menu {
         return name;
     }
 
+    public boolean isChicken() {
+        return category.equals(Category.CHICKEN);
+    }
+
     public int getPrice() {
         return price;
     }
