@@ -14,7 +14,6 @@ import view.OutputView;
 public class PayController {
     private final static double CASH_DISCOUNT_RATIO = 0.5;
 
-
     protected void process(TableOrders tableOrders) {
         final Table table = selectTable();
 
@@ -22,14 +21,25 @@ public class PayController {
             throw new IllegalArgumentException("주문 내역이 없는 테이블입니다");
         }
 
+        final Payment payment = getPayment(tableOrders, table);
+
+        int totalMoney = computeTotalMoney(tableOrders, table, payment);
+        OutputView.printTotalMoney(totalMoney);
+    }
+
+    private void showBillDetails(TableOrders tableOrders, Table table) {
         String billDetails = tableOrders.getBillDetails(table);
+
         OutputView.printBillDetails(billDetails);
+    }
+
+    private Payment getPayment(TableOrders tableOrders, Table table) {
+        showBillDetails(tableOrders, table);
 
         OutputView.printPayTable(table);
         final Payment payment = selectPayment();
 
-        int totalMoney = computeTotalMoney(tableOrders, table, payment);
-        OutputView.printTotalMoney(totalMoney);
+        return payment;
     }
 
 
