@@ -31,4 +31,11 @@ public class TableOrders {
 
         return bill.toString();
     }
+
+    public int computeTotalMoney(int tableNumber) {
+        Table table = TableRepository.getTable(tableNumber);
+        Bill bill = tableOrders.get(table);
+
+        return bill.computeTotalMoney();
+    }
 }
