@@ -26,9 +26,6 @@ public class OrderController {
     }
 
     private int selectTable() {
-        final List<Table> tables = TableRepository.tables();
-        OutputView.printTables(tables);
-
         final int tableNumber = InputView.inputTableNumber();
         InputValidator.validateTableNumber(tableNumber);
 
@@ -36,9 +33,6 @@ public class OrderController {
     }
 
     private int selectMenu() {
-        final List<Menu> menus = MenuRepository.menus();
-        OutputView.printMenus(menus);
-
         final int menuNumber = InputView.inputMenuNumber();
         InputValidator.validateMenuNumber(menuNumber);
 
