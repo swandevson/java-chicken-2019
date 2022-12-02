@@ -20,6 +20,8 @@ public class TableOrders {
         Table table = TableRepository.getTable(tableNumber);
         Bill bill = tableOrders.get(table);
 
+        table.order();
+
         bill.addOrder(order);
     }
 
