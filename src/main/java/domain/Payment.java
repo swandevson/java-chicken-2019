@@ -24,4 +24,11 @@ public enum Payment {
     public boolean equals(int number) {
         return this.number == number;
     }
+
+    public static Payment getPayment(int number) {
+        return Arrays.stream(Payment.values())
+                .filter(payment -> payment.number == number)
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 결제수단입니다."));
+    }
 }

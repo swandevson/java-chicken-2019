@@ -16,8 +16,7 @@ public class TableOrders {
     }
 
 
-    public void addOrder(int tableNumber, Order order) {
-        Table table = TableRepository.getTable(tableNumber);
+    public void addOrder(Table table, Order order) {
         Bill bill = tableOrders.get(table);
 
         table.order();
@@ -25,15 +24,13 @@ public class TableOrders {
         bill.addOrder(order);
     }
 
-    public String getBillDetails(int tableNumber) {
-        Table table = TableRepository.getTable(tableNumber);
+    public String getBillDetails(Table table) {
         Bill bill = tableOrders.get(table);
 
         return bill.toString();
     }
 
-    public int computeTotalMoney(int tableNumber) {
-        Table table = TableRepository.getTable(tableNumber);
+    public int computeTotalMoney(Table table) {
         Bill bill = tableOrders.get(table);
 
         return bill.computeTotalMoney();

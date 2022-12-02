@@ -1,6 +1,5 @@
 package Controller;
 
-import Validator.InputValidator;
 
 import domain.Payment;
 import domain.Table;
@@ -17,25 +16,25 @@ public class PayController {
 
 
     protected void process(TableOrders tableOrders) {
-        final int tableNumber = selectTable();
+        final Table table = selectTable();
 
-        String billDetails = tableOrders.getBillDetails(tableNumber);
+        String billDetails = tableOrders.getBillDetails(table);
         OutputView.printBillDetails(billDetails);
 
-        final int paymentNumber = selectPayment(tableNumber);
-        int totalMoney = computeTotalMoney(tableOrders, tableNumber, paymentNumber);
+        OutputView.printPayTable(table);
+        final Payment payment = selectPayment();
 
+        int totalMoney = computeTotalMoney(tableOrders, table, payment);
         OutputView.printTotalMoney(totalMoney);
     }
 
 
-    private int selectTable() {
+    private Table selectTable() {
         while (true) {
             try {
                 final int tableNumber = InputView.inputTableNumber();
-                InputValidator.validateTableNumber(tableNumber);
 
-                return tableNumber;
+                return TableRepository.getTable(tableNumber);
             } catch (Exception exception) {
                 System.out.println(exception.getMessage());
             }
@@ -43,24 +42,22 @@ public class PayController {
 
     }
 
-    private int selectPayment(int tableNumber) {
+    private Payment selectPayment() {
         while (true) {
             try {
-                final int paymentNumber = InputView.inputPaymentNumber(tableNumber);
-                InputValidator.validatePayment(paymentNumber);
+                final int paymentNumber = InputView.inputPaymentNumber();
 
-                return paymentNumber;
+                return Payment.getPayment(paymentNumber);
             } catch (Exception exception) {
                 System.out.println(exception.getMessage());
             }
         }
     }
 
-    private int computeTotalMoney(TableOrders tableOrders, int tableNumber, int paymentNumber) {
-        Table table = TableRepository.getTable(tableNumber);
-        int totalMoney = tableOrders.computeTotalMoney(tableNumber);
+    private int computeTotalMoney(TableOrders tableOrders, Table table, Payment payment) {
+        int totalMoney = tableOrders.computeTotalMoney(table);
 
-        if (Payment.CASH.equals(paymentNumber)) {
+        if (payment.equals(Payment.CASH)) {
             totalMoney = (int) (totalMoney - (totalMoney * CASH_DISCOUNT_RATIO));
         }
 

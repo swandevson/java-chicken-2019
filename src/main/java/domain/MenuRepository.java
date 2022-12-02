@@ -33,6 +33,6 @@ public class MenuRepository {
         return menus.stream()
                 .filter(menu -> menu.equals(menuNumber))
                 .findAny()
-                .get();
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 메뉴입니다."));
     }
 }

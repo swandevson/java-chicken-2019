@@ -2,10 +2,13 @@ package Controller;
 
 import Validator.InputValidator;
 
+import domain.Menu;
 import domain.MenuRepository;
 import domain.Order;
+import domain.Table;
 import domain.TableOrders;
 
+import domain.TableRepository;
 import view.InputView;
 
 
@@ -13,34 +16,32 @@ import view.InputView;
 public class OrderController {
 
     protected void process(TableOrders tableOrders) {
-        final int tableNumber = selectTable();
-        final int menuNumber = selectMenu();
+        final Table table = selectTable();
+        final Menu menu = selectMenu();
         final int menuCount = inputMenuCount();
-        Order order = new Order(MenuRepository.getMenu(menuNumber), menuCount);
+        Order order = new Order(menu, menuCount);
 
-        tableOrders.addOrder(tableNumber, order);
+        tableOrders.addOrder(table, order);
     }
 
-    private int selectTable() {
+    private Table selectTable() {
         while (true) {
             try {
                 final int tableNumber = InputView.inputTableNumber();
-                InputValidator.validateTableNumber(tableNumber);
 
-                return tableNumber;
+                return TableRepository.getTable(tableNumber);
             } catch (Exception exception) {
                 System.out.println(exception.getMessage());
             }
         }
     }
 
-    private int selectMenu() {
+    private Menu selectMenu() {
         while (true) {
             try {
                 final int menuNumber = InputView.inputMenuNumber();
-                InputValidator.validateMenuNumber(menuNumber);
 
-                return menuNumber;
+                return MenuRepository.getMenu(menuNumber);
             } catch (Exception exception) {
                 System.out.println(exception.getMessage());
             }

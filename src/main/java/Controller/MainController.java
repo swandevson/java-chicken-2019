@@ -18,17 +18,17 @@ public class MainController {
     public void run() {
         while (true) {
             final int commandNumber = InputView.inputCommandNumber();
-            InputValidator.validateCommandNumber(commandNumber);
+            Command command = Command.getCommand(commandNumber);
 
-            if (Command.ORDER.equals(commandNumber)) {
+            if (command.equals(Command.ORDER)) {
                 order();
             }
 
-            if (Command.PAY.equals(commandNumber)) {
+            if (command.equals(Command.PAY)) {
                 pay();
             }
 
-            if (Command.QUIT.equals(commandNumber)) {
+            if (command.equals(Command.QUIT)) {
                 return;
             }
         }

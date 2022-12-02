@@ -22,15 +22,11 @@ public class TableRepository {
         return Collections.unmodifiableList(tables);
     }
 
-    public static boolean isExistTable(int tableNumber) {
-        return tables.stream()
-                .anyMatch(table -> table.equals(tableNumber));
-    }
 
     public static Table getTable(int tableNumber) {
         return tables.stream()
                 .filter(table -> table.equals(tableNumber))
                 .findAny()
-                .get();
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 테이블입니다."));
     }
 }
