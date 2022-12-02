@@ -12,7 +12,7 @@ import view.OutputView;
 
 
 public class PayController {
-    private final static double CASH_DISCOUNT_RATIO = 0.5;
+    private final static double CASH_DISCOUNT_RATIO = 0.05;
 
     protected void process(TableOrders tableOrders) {
         final Table table = selectTable();
