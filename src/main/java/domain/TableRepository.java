@@ -24,4 +24,11 @@ public class TableRepository {
         return tables.stream()
                 .anyMatch(table -> table.equals(tableNumber));
     }
+
+    public static Table getTable(int tableNumber) {
+        return tables.stream()
+                .filter(table -> table.equals(tableNumber))
+                .findAny()
+                .get();
+    }
 }
