@@ -26,4 +26,11 @@ public class MenuRepository {
         return menus.stream()
                 .anyMatch(menu -> menu.equals(menuNumber));
     }
+
+    public static Menu getMenu(int menuNumber) {
+        return menus.stream()
+                .filter(menu -> menu.equals(menuNumber))
+                .findAny()
+                .get();
+    }
 }

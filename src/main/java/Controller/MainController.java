@@ -5,7 +5,9 @@ import domain.Command;
 import domain.Menu;
 import domain.MenuRepository;
 import domain.Table;
+import domain.TableOrders;
 import domain.TableRepository;
+import java.util.HashMap;
 import java.util.List;
 import view.InputView;
 import view.OutputView;
@@ -13,7 +15,8 @@ import view.OutputView;
 
 
 public class MainController {
-    private OrderController orderController = new OrderController();
+    final private OrderController orderController = new OrderController();
+    final private TableOrders tableOrders = new TableOrders();
 
 
     public void run() {
@@ -26,6 +29,6 @@ public class MainController {
     }
 
     private void order() {
-        orderController.process();
+        orderController.process(tableOrders);
     }
 }

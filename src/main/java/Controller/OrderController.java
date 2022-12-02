@@ -1,9 +1,12 @@
 package Controller;
 
 import Validator.InputValidator;
+import domain.Bill;
 import domain.Menu;
 import domain.MenuRepository;
+import domain.Order;
 import domain.Table;
+import domain.TableOrders;
 import domain.TableRepository;
 import java.util.List;
 import view.InputView;
@@ -12,11 +15,14 @@ import view.OutputView;
 
 
 public class OrderController {
-    protected void process() {
+
+    protected void process(TableOrders tableOrders) {
         final int tableNumber = selectTable();
         final int menuNumber = selectMenu();
         final int menuCount = inputMenuCount();
+        Order order = new Order(MenuRepository.getMenu(menuNumber), menuCount);
 
+        tableOrders.addOrder(tableNumber, order);
     }
 
     private int selectTable() {
