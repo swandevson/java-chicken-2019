@@ -17,6 +17,11 @@ public enum Payment {
     }
 
 
+    public boolean equals(int number) {
+        return this.number == number;
+    }
+
+
     public static boolean isExistPayment(int number) {
         return Arrays.stream(Payment.values())
                 .anyMatch(payment -> payment.number == number);
