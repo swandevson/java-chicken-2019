@@ -19,4 +19,9 @@ public class TableRepository {
     public static List<Table> tables() {
         return Collections.unmodifiableList(tables);
     }
+
+    public static boolean isExistTable(int tableNumber) {
+        return tables.stream()
+                .anyMatch(table -> table.equals(tableNumber));
+    }
 }
