@@ -24,11 +24,6 @@ public class MenuRepository {
         return Collections.unmodifiableList(menus);
     }
 
-    public static boolean isExistMenu(int menuNumber) {
-        return menus.stream()
-                .anyMatch(menu -> menu.equals(menuNumber));
-    }
-
     public static Menu getMenu(int menuNumber) {
         return menus.stream()
                 .filter(menu -> menu.equals(menuNumber))

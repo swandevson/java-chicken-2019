@@ -28,11 +28,6 @@ public enum Command {
                 .orElseThrow(() -> new IllegalArgumentException("올바르지 않은 명령어입니다."));
     }
 
-    public boolean equals(int number) {
-        return this.number == number;
-    }
-
-
     @Override
     public String toString() {
         return number + " - " + statement;
