@@ -13,16 +13,19 @@ import view.OutputView;
 
 
 public class MainController {
+    private OrderController orderController = new OrderController();
+
+
     public void run() {
         final int commandNumber = InputView.inputCommandNumber();
         InputValidator.validateCommandNumber(commandNumber);
 
-        final List<Table> tables = TableRepository.tables();
-        OutputView.printTables(tables);
+        if (Command.ORDER.equals(commandNumber)) {
+            order();
+        }
+    }
 
-        final int tableNumber = InputView.inputTableNumber();
-
-        final List<Menu> menus = MenuRepository.menus();
-        OutputView.printMenus(menus);
+    private void order() {
+        orderController.process();
     }
 }
