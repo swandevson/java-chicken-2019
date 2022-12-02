@@ -3,6 +3,7 @@ package Validator;
 
 import domain.Command;
 import domain.MenuRepository;
+import domain.Table;
 import domain.TableRepository;
 import java.util.Arrays;
 
@@ -41,6 +42,14 @@ public class InputValidator {
 
         if (count > MAX_MENU_COUNT) {
             throw new IllegalArgumentException("너무 많은 주문량입니다");
+        }
+    }
+
+    public static void validatePay(int tableNumber) throws IllegalArgumentException {
+        Table table = TableRepository.getTable(tableNumber);
+
+        if (!table.isOrdered()) {
+            throw new IllegalArgumentException("주문 내역이 없는 테이블입니다");
         }
     }
 }

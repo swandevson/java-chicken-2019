@@ -22,6 +22,10 @@ public class Table {
         return number;
     }
 
+    public boolean isOrdered() {
+        return ordered;
+    }
+
     public void pay() {
         ordered = false;
     }
