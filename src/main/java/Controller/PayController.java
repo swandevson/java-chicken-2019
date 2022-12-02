@@ -18,6 +18,10 @@ public class PayController {
     protected void process(TableOrders tableOrders) {
         final Table table = selectTable();
 
+        if (!table.isOrdered()) {
+            throw new IllegalArgumentException("주문 내역이 없는 테이블입니다");
+        }
+
         String billDetails = tableOrders.getBillDetails(table);
         OutputView.printBillDetails(billDetails);
 
