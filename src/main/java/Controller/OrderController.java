@@ -1,16 +1,10 @@
 package Controller;
 
 import Validator.InputValidator;
-import domain.Bill;
-import domain.Menu;
 import domain.MenuRepository;
 import domain.Order;
-import domain.Table;
 import domain.TableOrders;
-import domain.TableRepository;
-import java.util.List;
 import view.InputView;
-import view.OutputView;
 
 
 
@@ -26,23 +20,41 @@ public class OrderController {
     }
 
     private int selectTable() {
-        final int tableNumber = InputView.inputTableNumber();
-        InputValidator.validateTableNumber(tableNumber);
+        while (true) {
+            try {
+                final int tableNumber = InputView.inputTableNumber();
+                InputValidator.validateTableNumber(tableNumber);
 
-        return tableNumber;
+                return tableNumber;
+            } catch (Exception exception) {
+                System.out.println(exception.getMessage());
+            }
+        }
     }
 
     private int selectMenu() {
-        final int menuNumber = InputView.inputMenuNumber();
-        InputValidator.validateMenuNumber(menuNumber);
+        while (true) {
+            try {
+                final int menuNumber = InputView.inputMenuNumber();
+                InputValidator.validateMenuNumber(menuNumber);
 
-        return menuNumber;
+                return menuNumber;
+            } catch (Exception exception) {
+                System.out.println(exception.getMessage());
+            }
+        }
     }
 
     private int inputMenuCount() {
-        final int menuCount = InputView.inputMenuCount();
-        InputValidator.validateMenuCount(menuCount);
+        while (true) {
+            try {
+                int menuCount = InputView.inputMenuCount();
+                InputValidator.validateMenuCount(menuCount);
 
-        return menuCount;
+                return menuCount;
+            } catch (Exception exception) {
+                System.out.println(exception.getMessage());
+            }
+        }
     }
 }

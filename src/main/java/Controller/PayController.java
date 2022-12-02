@@ -29,17 +29,30 @@ public class PayController {
 
 
     private int selectTable() {
-        final int tableNumber = InputView.inputTableNumber();
-        InputValidator.validateTableNumber(tableNumber);
+        while (true) {
+            try {
+                final int tableNumber = InputView.inputTableNumber();
+                InputValidator.validateTableNumber(tableNumber);
 
-        return tableNumber;
+                return tableNumber;
+            } catch (Exception exception) {
+                System.out.println(exception.getMessage());
+            }
+        }
+
     }
 
     private int selectPayment(int tableNumber) {
-        final int paymentNumber = InputView.inputPaymentNumber(tableNumber);
-        InputValidator.validatePayment(paymentNumber);
+        while (true) {
+            try {
+                final int paymentNumber = InputView.inputPaymentNumber(tableNumber);
+                InputValidator.validatePayment(paymentNumber);
 
-        return paymentNumber;
+                return paymentNumber;
+            } catch (Exception exception) {
+                System.out.println(exception.getMessage());
+            }
+        }
     }
 
     private int computeTotalMoney(TableOrders tableOrders, int tableNumber, int paymentNumber) {
