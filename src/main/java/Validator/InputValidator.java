@@ -1,12 +1,10 @@
 package Validator;
 
-
 import domain.Command;
 import domain.MenuRepository;
 import domain.Payment;
 import domain.Table;
 import domain.TableRepository;
-import java.util.Arrays;
 
 
 

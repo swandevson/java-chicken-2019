@@ -1,12 +1,12 @@
 package view;
 
-import Validator.InputValidator;
 import domain.Command;
-import domain.Menu;
 import domain.MenuRepository;
 import domain.TableRepository;
 import java.util.Arrays;
 import java.util.Scanner;
+
+
 
 public class InputView {
     private static final String PAY_TALBE_NUMBER = "## %d번 테이블의 결제를 진행합니다." + System.lineSeparator();

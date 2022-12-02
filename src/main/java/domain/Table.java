@@ -1,5 +1,7 @@
 package domain;
 
+
+
 public class Table {
     private final int number;
     private boolean ordered;

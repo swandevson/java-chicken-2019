@@ -1,5 +1,7 @@
 package domain;
 
+
+
 public enum Category {
     CHICKEN("치킨"),
     BEVERAGE("음료");

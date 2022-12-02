@@ -1,7 +1,6 @@
 package domain;
 
 
-
 public enum Command {
     ORDER(1, "주문등록"),
     PAY(2, "결제하기"),

@@ -1,11 +1,12 @@
 package Controller;
 
 import Validator.InputValidator;
-import domain.Bill;
+
 import domain.Payment;
 import domain.Table;
 import domain.TableOrders;
 import domain.TableRepository;
+
 import view.InputView;
 import view.OutputView;
 
@@ -60,7 +61,7 @@ public class PayController {
         int totalMoney = tableOrders.computeTotalMoney(tableNumber);
 
         if (Payment.CASH.equals(paymentNumber)) {
-            totalMoney = (int)(totalMoney - (totalMoney * CASH_DISCOUNT_RATIO));
+            totalMoney = (int) (totalMoney - (totalMoney * CASH_DISCOUNT_RATIO));
         }
 
         table.pay();

@@ -1,10 +1,11 @@
 package view;
 
-import domain.Bill;
 import domain.Menu;
 import domain.Table;
 
 import java.util.List;
+
+
 
 public class OutputView {
     private static final String TOP_LINE = "┌ ─ ┐";

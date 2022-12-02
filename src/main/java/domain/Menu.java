@@ -1,5 +1,7 @@
 package domain;
 
+
+
 public class Menu {
     private final int number;
     private final String name;

@@ -1,5 +1,7 @@
 package domain;
 
+
+
 public class Order {
     final private Menu menu;
     final private int count;
