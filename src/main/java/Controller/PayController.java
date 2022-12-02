@@ -61,7 +61,7 @@ public class PayController {
             totalMoney = (int) (totalMoney - (totalMoney * CASH_DISCOUNT_RATIO));
         }
 
-        table.pay();
+        tableOrders.clear(table);
 
         return totalMoney;
     }

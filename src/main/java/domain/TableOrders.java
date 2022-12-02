@@ -35,4 +35,9 @@ public class TableOrders {
 
         return bill.computeTotalMoney();
     }
+
+    public void clear(Table table) {
+        table.pay();
+        tableOrders.put(table, new Bill());
+    }
 }
