@@ -26,6 +26,14 @@ public class Table {
         return ordered;
     }
 
+    public String getTableMark() {
+        if (ordered) {
+            return "O";
+        }
+
+        return "─";
+    }
+
     public void pay() {
         ordered = false;
     }
