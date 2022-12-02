@@ -21,11 +21,11 @@ public class Bill {
 
     @Override
     public String toString() {
-        String orderResult = "";
+        String billDetails = "";
         for (Order order : orders) {
-            orderResult += order.toString() + System.lineSeparator();
+            billDetails += order.toString() + System.lineSeparator();
         }
 
-        return orderResult;
+        return billDetails;
     }
 }

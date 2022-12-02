@@ -23,7 +23,7 @@ public class TableOrders {
         bill.addOrder(order);
     }
 
-    public String getOrderResult(int tableNumber) {
+    public String getBillDetails(int tableNumber) {
         Table table = TableRepository.getTable(tableNumber);
         Bill bill = tableOrders.get(table);
 
