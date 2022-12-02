@@ -2,9 +2,11 @@ package domain;
 
 public class Table {
     private final int number;
+    private boolean ordered;
 
     public Table(final int number) {
         this.number = number;
+        this.ordered = false;
     }
 
     @Override
@@ -18,5 +20,13 @@ public class Table {
 
     public int getNumber() {
         return number;
+    }
+
+    public void pay() {
+        ordered = false;
+    }
+
+    public void order() {
+        ordered = true;
     }
 }
