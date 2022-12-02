@@ -14,7 +14,7 @@ import view.OutputView;
 public class PayController {
     private final static double CASH_DISCOUNT_RATIO = 0.05;
 
-    protected void process(TableOrders tableOrders) {
+    protected void process(final TableOrders tableOrders) {
         final Table table = selectTable();
 
         if (!table.isOrdered()) {
@@ -27,13 +27,13 @@ public class PayController {
         OutputView.printTotalMoney(totalMoney);
     }
 
-    private void showBillDetails(TableOrders tableOrders, Table table) {
+    private void showBillDetails(final TableOrders tableOrders, final Table table) {
         String billDetails = tableOrders.getBillDetails(table);
 
         OutputView.printBillDetails(billDetails);
     }
 
-    private Payment getPayment(TableOrders tableOrders, Table table) {
+    private Payment getPayment(final TableOrders tableOrders, final Table table) {
         showBillDetails(tableOrders, table);
 
         OutputView.printPayTable(table);
@@ -68,7 +68,7 @@ public class PayController {
         }
     }
 
-    private int computeTotalMoney(TableOrders tableOrders, Table table, Payment payment) {
+    private int computeTotalMoney(final TableOrders tableOrders, final Table table, final Payment payment) {
         int totalMoney = tableOrders.computeTotalMoney(table);
 
         if (payment.equals(Payment.CASH)) {

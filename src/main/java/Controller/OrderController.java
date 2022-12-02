@@ -15,7 +15,7 @@ import view.InputView;
 
 public class OrderController {
 
-    protected void process(TableOrders tableOrders) {
+    protected void process(final TableOrders tableOrders) {
         final Table table = selectTable();
         final Menu menu = selectMenu();
         final int menuCount = inputMenuCount();
@@ -51,7 +51,7 @@ public class OrderController {
     private int inputMenuCount() {
         while (true) {
             try {
-                int menuCount = InputView.inputMenuCount();
+                final int menuCount = InputView.inputMenuCount();
                 InputValidator.validateMenuCount(menuCount);
 
                 return menuCount;

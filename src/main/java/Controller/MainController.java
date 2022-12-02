@@ -19,7 +19,7 @@ public class MainController {
         while (true) {
             try {
                 final int commandNumber = InputView.inputCommandNumber();
-                Command command = Command.getCommand(commandNumber);
+                final Command command = Command.getCommand(commandNumber);
 
                 if (command.equals(Command.ORDER)) {
                     order();
