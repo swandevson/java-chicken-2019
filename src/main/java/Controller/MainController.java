@@ -1,5 +1,7 @@
 package Controller;
 
+import Validator.InputValidator;
+import domain.Command;
 import domain.Menu;
 import domain.MenuRepository;
 import domain.Table;
@@ -12,6 +14,9 @@ import view.OutputView;
 
 public class MainController {
     public void run() {
+        final int commandNumber = InputView.inputCommandNumber();
+        InputValidator.validateCommandNumber(commandNumber);
+
         final List<Table> tables = TableRepository.tables();
         OutputView.printTables(tables);
 

@@ -27,6 +27,10 @@ public enum Command {
     }
 
 
+    public boolean equals(int number) {
+        return this.number == number;
+    }
+
     @Override
     public String toString() {
         return number + " - " + statement;
