@@ -9,7 +9,9 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class InputView {
+    private static final String PAY_TALBE_NUMBER = "## %d번 테이블의 결제를 진행합니다." + System.lineSeparator();
     private static final Scanner scanner = new Scanner(System.in);
+
 
     public static int inputCommandNumber() {
         System.out.println("## 메인화면");
@@ -44,6 +46,13 @@ public class InputView {
     public static int inputMenuCount() {
         System.out.println();
         System.out.println("## 메뉴의 수량을 입력하세요.");
+
+        return scanner.nextInt();
+    }
+
+    public static int inputPaymentNumber(int tableNumber) {
+        System.out.printf(PAY_TALBE_NUMBER, tableNumber);
+        System.out.println("## 신용 카드는 1번, 현금은 2번");
 
         return scanner.nextInt();
     }
