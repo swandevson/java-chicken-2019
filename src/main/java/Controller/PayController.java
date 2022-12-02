@@ -22,7 +22,9 @@ public class PayController {
         OutputView.printBillDetails(billDetails);
 
         final int paymentNumber = selectPayment(tableNumber);
-        computeTotalMoney(tableOrders, tableNumber, paymentNumber);
+        int totalMoney = computeTotalMoney(tableOrders, tableNumber, paymentNumber);
+
+        OutputView.printTotalMoney(totalMoney);
     }
 
 

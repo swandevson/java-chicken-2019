@@ -10,6 +10,7 @@ public class OutputView {
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
     private static final String BOTTOM_LINE = "└ %s ┘";
+    private static final String TOTAL_MONEY = "%d원";
 
     public static void printTables(final List<Table> tables) {
         System.out.println("## 테이블 목록");
@@ -50,5 +51,11 @@ public class OutputView {
         System.out.println("## 주문 내역");
         System.out.println("메뉴 수량 금액");
         System.out.println(billDetails);
+    }
+
+    public static void printTotalMoney(int totalMoney) {
+        System.out.println("## 최종 결제할 금액");
+        System.out.printf(TOTAL_MONEY, totalMoney);
+        System.out.println();
     }
 }
