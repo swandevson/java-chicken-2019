@@ -15,4 +15,8 @@ public class Table {
     public boolean equals(int number) {
         return this.number == number;
     }
+
+    public int getNumber() {
+        return number;
+    }
 }

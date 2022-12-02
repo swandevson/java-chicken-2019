@@ -5,13 +5,13 @@ import java.util.HashMap;
 
 
 public class TableOrders {
-    private final HashMap<Table, Bill> tableOrders;
+    private final HashMap<Integer, Bill> tableOrders;
 
 
     public TableOrders() {
         this.tableOrders = new HashMap<>();
         for (Table table : TableRepository.tables()) {
-            tableOrders.put(table, new Bill());
+            tableOrders.put(table.getNumber(), new Bill());
         }
     }
 
