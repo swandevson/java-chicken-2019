@@ -3,6 +3,7 @@ package Validator;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 
+import domain.Command;
 import domain.TableRepository;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -15,7 +16,7 @@ class InputValidatorTest {
     @ValueSource(ints = {-1, 0, 4, 10})
     void 예외_명령어_번호_입력(int number) {
         assertThrowsExactly(IllegalArgumentException.class,
-                () -> InputValidator.validateCommandNumber(number));
+                () -> Command.getCommand(number));
     }
 
     @ParameterizedTest
