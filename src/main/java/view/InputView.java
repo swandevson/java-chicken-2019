@@ -1,8 +1,8 @@
 package view;
 
 import domain.Command;
-import domain.MenuRepository;
-import domain.TableRepository;
+import domain.repository.MenuRepository;
+import domain.repository.TableRepository;
 import java.util.Arrays;
 import java.util.Scanner;
 

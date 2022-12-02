@@ -4,7 +4,7 @@ package Controller;
 import domain.Payment;
 import domain.Table;
 import domain.TableOrders;
-import domain.TableRepository;
+import domain.repository.TableRepository;
 
 import view.InputView;
 import view.OutputView;

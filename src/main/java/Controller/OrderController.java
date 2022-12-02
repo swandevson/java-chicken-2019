@@ -2,13 +2,13 @@ package Controller;
 
 import Validator.InputValidator;
 
-import domain.Menu;
-import domain.MenuRepository;
-import domain.Order;
+import domain.menu.Menu;
+import domain.repository.MenuRepository;
+import domain.order.Order;
 import domain.Table;
 import domain.TableOrders;
 
-import domain.TableRepository;
+import domain.repository.TableRepository;
 import view.InputView;
 
 

@@ -1,4 +1,7 @@
-package domain;
+package domain.order;
+
+
+import domain.menu.Menu;
 
 
 
