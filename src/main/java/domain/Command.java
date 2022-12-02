@@ -17,15 +17,6 @@ public enum Command {
     }
 
 
-    public int getNumber() {
-        return number;
-    }
-
-    public String getStatement() {
-        return statement;
-    }
-
-
     public boolean equals(int number) {
         return this.number == number;
     }

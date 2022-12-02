@@ -20,10 +20,6 @@ public class Table {
         return this.number == number;
     }
 
-    public int getNumber() {
-        return number;
-    }
-
     public boolean isOrdered() {
         return ordered;
     }
