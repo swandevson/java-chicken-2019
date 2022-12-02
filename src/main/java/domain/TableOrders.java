@@ -22,4 +22,11 @@ public class TableOrders {
 
         bill.addOrder(order);
     }
+
+    public String getOrderResult(int tableNumber) {
+        Table table = TableRepository.getTable(tableNumber);
+        Bill bill = tableOrders.get(table);
+
+        return bill.toString();
+    }
 }

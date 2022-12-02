@@ -18,6 +18,14 @@ public class Menu {
         return category + " " + number + " - " + name + " : " + price + "원";
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
     public boolean equals(int number) {
         return this.number == number;
     }

@@ -18,4 +18,14 @@ public class Bill {
     public void addOrder(Order order) {
         orders.add(order);
     }
+
+    @Override
+    public String toString() {
+        String orderResult = "";
+        for (Order order : orders) {
+            orderResult += order.toString() + System.lineSeparator();
+        }
+
+        return orderResult;
+    }
 }

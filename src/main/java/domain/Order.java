@@ -9,4 +9,13 @@ public class Order {
         this.menu = menu;
         this.count = count;
     }
+
+    public int getPrice() {
+        return menu.getPrice() * count;
+    }
+
+    @Override
+    public String toString() {
+        return menu.getName() + " " + count + " " + getPrice();
+    }
 }
