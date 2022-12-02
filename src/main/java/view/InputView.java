@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 
 public class InputView {
-    private static final String PAY_TALBE_NUMBER = "## %d번 테이블의 결제를 진행합니다." + System.lineSeparator();
+
     private static final Scanner scanner = new Scanner(System.in);
 
 
@@ -50,8 +50,7 @@ public class InputView {
         return scanner.nextInt();
     }
 
-    public static int inputPaymentNumber(int tableNumber) {
-        System.out.printf(PAY_TALBE_NUMBER, tableNumber);
+    public static int inputPaymentNumber() {
         System.out.println("## 신용 카드는 1번, 현금은 2번");
 
         return scanner.nextInt();

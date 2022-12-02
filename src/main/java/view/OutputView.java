@@ -11,6 +11,7 @@ public class OutputView {
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
     private static final String BOTTOM_LINE = "└ %s ┘";
+    private static final String PAY_TALBE_NUMBER = "## %s번 테이블의 결제를 진행합니다." + System.lineSeparator();
     private static final String TOTAL_MONEY = "%d원";
 
     public static void printTables(final List<Table> tables) {
@@ -57,6 +58,11 @@ public class OutputView {
     public static void printTotalMoney(int totalMoney) {
         System.out.println("## 최종 결제할 금액");
         System.out.printf(TOTAL_MONEY, totalMoney);
+        System.out.println();
+    }
+
+    public static void printPayTable(Table table) {
+        System.out.printf(PAY_TALBE_NUMBER, table.toString());
         System.out.println();
     }
 }
