@@ -17,19 +17,23 @@ public class MainController {
 
     public void run() {
         while (true) {
-            final int commandNumber = InputView.inputCommandNumber();
-            Command command = Command.getCommand(commandNumber);
+            try {
+                final int commandNumber = InputView.inputCommandNumber();
+                Command command = Command.getCommand(commandNumber);
 
-            if (command.equals(Command.ORDER)) {
-                order();
-            }
+                if (command.equals(Command.ORDER)) {
+                    order();
+                }
 
-            if (command.equals(Command.PAY)) {
-                pay();
-            }
+                if (command.equals(Command.PAY)) {
+                    pay();
+                }
 
-            if (command.equals(Command.QUIT)) {
-                return;
+                if (command.equals(Command.QUIT)) {
+                    return;
+                }
+            } catch (Exception exception) {
+                System.out.println(exception.getMessage());
             }
         }
     }
